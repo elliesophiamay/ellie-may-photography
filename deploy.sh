@@ -3,18 +3,13 @@
 # ─────────────────────────────────────────────────────────────
 #  Ellie May Photography — Deploy Script
 #  Usage:  ./deploy.sh "Your commit message"
-#  Requires: gh (GitHub CLI) + vercel (Vercel CLI) via Homebrew
+#  Always commits + pushes directly to main, then deploys live.
 # ─────────────────────────────────────────────────────────────
 
-set -e  # exit on any error
+set -e
 
-# ── Ensure Homebrew bin is on PATH (required for node/vercel) ─
+# ── Ensure Homebrew bin is on PATH ────────────────────────────
 export PATH="/opt/homebrew/bin:$PATH"
-
-# ── Tool paths ────────────────────────────────────────────────
-GH="gh"
-VERCEL="vercel"
-GIT="git"
 
 # ── Colour helpers ────────────────────────────────────────────
 GREEN='\033[0;32m'
@@ -29,11 +24,18 @@ warn()    { echo -e "${YELLOW}⚠  $1${NC}"; }
 error()   { echo -e "${RED}✗  $1${NC}"; exit 1; }
 
 # ── Validate tools ────────────────────────────────────────────
-command -v "$GH"     >/dev/null 2>&1 || error "GitHub CLI not found. Run: brew install gh"
-command -v "$VERCEL" >/dev/null 2>&1 || error "Vercel CLI not found. Run: brew install vercel-cli"
+command -v gh     >/dev/null 2>&1 || error "GitHub CLI not found. Run: brew install gh"
+command -v vercel >/dev/null 2>&1 || error "Vercel CLI not found. Run: brew install vercel-cli"
 
 # ── Commit message ────────────────────────────────────────────
 COMMIT_MSG="${1:-"Update site"}"
+
+# ── Always ensure we are on main ──────────────────────────────
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$CURRENT_BRANCH" != "main" ]; then
+  warn "Not on main (currently on '$CURRENT_BRANCH'). Switching to main…"
+  git checkout main
+fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -43,27 +45,27 @@ echo ""
 
 # ── Step 1: Stage all changes ─────────────────────────────────
 info "Staging all changes…"
-$GIT add -A
+git add -A
 
-# Check if there's anything to commit
-if $GIT diff --cached --quiet; then
+# ── Step 2: Commit (skip if nothing changed) ──────────────────
+if git diff --cached --quiet; then
   warn "Nothing new to commit — working tree already clean."
 else
   info "Committing: \"$COMMIT_MSG\""
-  $GIT commit -m "$COMMIT_MSG"
+  git commit -m "$COMMIT_MSG"
   success "Committed!"
 
-  # ── Step 2: Push to GitHub ────────────────────────────────
-  info "Pushing to GitHub (origin/main)…"
-  $GH repo sync 2>/dev/null || $GIT push origin main
-  success "Pushed to GitHub → https://github.com/elliesophiamay/ellie-may-photography"
+  # ── Step 3: Push to GitHub main ──────────────────────────────
+  info "Pushing to GitHub → main…"
+  git push origin main
+  success "Pushed → https://github.com/elliesophiamay/ellie-may-photography"
 fi
 
 echo ""
 
-# ── Step 3: Deploy to Vercel (production) ─────────────────────
+# ── Step 4: Deploy to Vercel production ───────────────────────
 info "Deploying to Vercel (production)…"
-DEPLOY_OUTPUT=$($VERCEL --prod --yes 2>&1)
+DEPLOY_OUTPUT=$(vercel --prod --yes 2>&1)
 DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -E "^https://" | tail -1)
 
 echo ""
