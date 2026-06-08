@@ -113,23 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ─── CONTACT FORM ───────────────────────────────────
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      btn.textContent = '✓ Message Sent!';
-      btn.style.background = 'hsl(152, 29%, 30%)';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.style.background = '';
-        btn.disabled = false;
-        form.reset();
-      }, 3500);
-    });
-  }
+  // ─── CONTACT FORM ─── handled by @formspree/ajax SDK ───
 
   // ─── GALLERY: parallax on mouse ─────────────────────
   const galleryItems = document.querySelectorAll('.gallery-item');
