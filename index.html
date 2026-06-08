@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ellie May Photography | Wedding & Portrait Photographer</title>
+  <meta name="description" content="Ellie May Photography — capturing timeless love stories across Worcestershire and beyond. Weddings, engagements, and newborn portraits." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────── -->
+  <header class="nav-header" id="top">
+    <nav class="nav-container">
+      <div class="nav-logo">
+        <img src="Images/ellie may photography (1).png" alt="Ellie May Photography" class="nav-logo-img" />
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#packages" class="nav-link">Packages</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Get in Touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ─── HERO ──────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-image-wrap">
+      <img src="Images/4.png" alt="Bride and groom sharing a kiss in front of a Worcestershire manor in autumn" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Worcestershire & Beyond</p>
+      <h1 class="hero-title">Your Story,<br /><em>Forever Told</em></h1>
+      <p class="hero-sub">"The best love is the kind that awakens the soul and makes us reach for more."</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-primary" id="hero-gallery-btn">View Portfolio</a>
+        <a href="#contact" class="btn btn-ghost" id="hero-contact-btn">Book a Consultation</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── INTRO STRIP ────────────────────────────────────── -->
+  <section class="intro-strip">
+    <div class="intro-strip-inner">
+      <span>Weddings</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Engagements</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Newborns</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Portraits</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Families</span>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-images">
+        <div class="about-img-primary">
+          <img src="Images/1.png" alt="Bride and groom sitting on rustic stone steps" />
+        </div>
+        <div class="about-img-secondary">
+          <img src="Images/6.png" alt="Bride and groom with their dog under a stone arch" />
+        </div>
+        <div class="about-badge">
+          <svg viewBox="0 0 100 100" class="badge-ring"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+          <span class="badge-num">5+</span>
+          <span class="badge-label">Years of Love Stories</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">About Ellie May</p>
+        <h2 class="section-title">Capturing Love<br />in Every Frame</h2>
+        <p class="body-text">With a keen eye for detail and a heart full of passion, I specialise in capturing the essence of love and telling beautiful stories through my photography.</p>
+        <p class="body-text">Every click of my camera is a moment frozen in time — a memory to be cherished forever. Let me be a part of your special day and immortalise your love story.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">200+</span>
+            <span class="stat-label">Couples Photographed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">5★</span>
+            <span class="stat-label">Average Review</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">Worcestershire</span>
+            <span class="stat-label">Based, Travel Anywhere</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-dark" id="about-contact-btn">Let's Chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PACKAGES ──────────────────────────────────────── -->
+  <section class="packages" id="packages">
+    <div class="section-header">
+      <p class="section-label light">What I Offer</p>
+      <h2 class="section-title light">Photography Packages</h2>
+      <p class="section-sub light">Tailored to your story, your day, your way.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card" id="pkg-elopement">
+        <div class="pkg-icon">💍</div>
+        <h3 class="pkg-title">Elopement</h3>
+        <p class="pkg-desc">Intimate, adventurous, and entirely yours. Perfect for small ceremonies and micro-weddings.</p>
+        <ul class="pkg-list">
+          <li>Up to 4 hours coverage</li>
+          <li>100+ edited images</li>
+          <li>Private online gallery</li>
+          <li>Print release included</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pkg-btn">Enquire Now</a>
+      </div>
+      <div class="package-card featured" id="pkg-wedding">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-icon">💒</div>
+        <h3 class="pkg-title">Full Day Wedding</h3>
+        <p class="pkg-desc">From getting ready to first dance — I'll be there to capture every precious moment.</p>
+        <ul class="pkg-list">
+          <li>Full day coverage (8–10 hrs)</li>
+          <li>400+ edited images</li>
+          <li>Engagement shoot included</li>
+          <li>Premium online gallery</li>
+          <li>Print release included</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary pkg-btn">Enquire Now</a>
+      </div>
+      <div class="package-card" id="pkg-portrait">
+        <div class="pkg-icon">🌿</div>
+        <h3 class="pkg-title">Portraits & Families</h3>
+        <p class="pkg-desc">Engagements, newborns, family sessions — celebrating life's most beautiful chapters.</p>
+        <ul class="pkg-list">
+          <li>1–2 hour session</li>
+          <li>60+ edited images</li>
+          <li>Private online gallery</li>
+          <li>Print release included</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pkg-btn">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ───────────────────────────────────────── -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">Stories I've Had the<br />Pleasure of Capturing</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall" id="gal-1">
+        <img src="Images/Anna and David-1228.jpg" alt="Anna &amp; David — Military wedding by rose garden fountain" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">Anna &amp; David</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-2">
+        <img src="Images/Screenshot 2026-06-08 at 13.05.10.png" alt="Bride and groom sharing a tender moment in a Scottish flower garden" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">Scottish Garden</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-3">
+        <img src="Images/Screenshot 2026-06-08 at 13.05.45.png" alt="Groom in tartan kilt lifts bride for a kiss along a garden path" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">Scottish Kilt Wedding</p>
+        </div>
+      </div>
+      <div class="gallery-item wide" id="gal-4">
+        <img src="Images/Screenshot 2026-06-08 at 13.01.54_1.png" alt="Military bride and groom walk through a bubble send-off surrounded by cheering guests" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">The Grand Exit</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-5">
+        <img src="Images/Screenshot 2026-06-08 at 13.05.37.png" alt="Military groom kisses bride against a sandstone pillar" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">First Kiss</p>
+        </div>
+      </div>
+      <div class="gallery-item tall" id="gal-7">
+        <img src="Images/Screenshot 2026-06-08 at 13.06.15.png" alt="Bride and groom share a laugh in a rustic bohemian outdoor venue" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">Bohemian Celebration</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-8">
+        <img src="Images/Screenshot 2026-06-08 at 13.05.00.png" alt="Couple embracing and laughing together on a sunny coastal beach" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Engagement</span>
+          <p class="gallery-name">Beach Shoot</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-9">
+        <img src="Images/Screenshot 2026-06-08 at 13.05.23.png" alt="Couple sitting together laughing in purple Scottish heather on a hillside" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Engagement</span>
+          <p class="gallery-name">Highland Heather</p>
+        </div>
+      </div>
+      <div class="gallery-item wide" id="gal-10">
+        <img src="Images/Screenshot 2026-06-08 at 13.06.42.png" alt="Grand baroque manor house with blue shutters and ornate stone arches" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Venue</span>
+          <p class="gallery-name">Mediterranean Manor</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-11">
+        <img src="Images/Screenshot 2026-06-08 at 13.06.53.png" alt="Smiling bride and groom posing together by an ornate stone fountain" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Wedding</span>
+          <p class="gallery-name">Destination Wedding</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-12">
+        <img src="Images/Screenshot 2026-06-08 at 13.05.59.png" alt="Couple sitting close together in golden meadow grass at sunset" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Engagement</span>
+          <p class="gallery-name">Golden Hour</p>
+        </div>
+      </div>
+      <div class="gallery-item tall" id="gal-13">
+        <img src="Images/Screenshot 2026-06-08 at 13.06.22.png" alt="Engaged couple close together in front of ancient castle stonework" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Engagement</span>
+          <p class="gallery-name">Castle Engagement</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-14">
+        <img src="Images/Anna and David-1241.jpg" alt="Close-up of bride and groom's hands and wedding rings — military wedding" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Details</span>
+          <p class="gallery-name">Anna &amp; David — The Rings</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-15">
+        <img src="Images/Screenshot 2026-06-08 at 13.06.35.png" alt="Close-up of couple holding hands with a sparkling diamond engagement ring" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Details</span>
+          <p class="gallery-name">The Ring</p>
+        </div>
+      </div>
+      <div class="gallery-item wide" id="gal-16">
+        <img src="Images/7.png" alt="Scottish castle surrounded by autumn woodland in soft golden light" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Venue</span>
+          <p class="gallery-name">Scottish Castle</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-17">
+        <img src="Images/5.png" alt="Candlelit ceremony hall with stone vaulted ceiling and flower arrangements" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Venue</span>
+          <p class="gallery-name">Castle Ceremony</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-18">
+        <img src="Images/3.png" alt="Tiered wedding cake decorated with fresh flowers and greenery" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Details</span>
+          <p class="gallery-name">Wedding Cake</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-19">
+        <img src="Images/2.png" alt="Bride's lace wedding dress hanging in a warmly-lit room" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Details</span>
+          <p class="gallery-name">The Dress</p>
+        </div>
+      </div>
+      <div class="gallery-item" id="gal-20">
+        <img src="Images/Anna and David-0698.jpg" alt="Anna &amp; David — military wedding bridal bouquet detail" loading="lazy" />
+        <div class="gallery-overlay">
+          <span class="gallery-category">Details</span>
+          <p class="gallery-name">Anna &amp; David</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-cta">
+      <a href="#contact" class="btn btn-dark" id="gallery-cta-btn">View Full Portfolio</a>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ──────────────────────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-inner">
+      <p class="section-label light">Kind Words</p>
+      <h2 class="section-title light">What Couples Say</h2>
+      <div class="testimonial-track" id="testimonial-track">
+        <div class="testimonial-slide active" id="testimonial-1">
+          <blockquote>
+            "We feel very fortunate to have had Ellie capture our special day. From our first meeting where we were able to share details of our wedding day, a fun and relaxed engagement shot, capturing every aspect of our wedding day itself, to receiving the most wonderful wedding photos. Ellie's positive nature shone through in every email and conversation. We cannot thank you enough Ellie — we have wedding photos we will treasure forever."
+          </blockquote>
+          <cite>Anna &amp; David McGrath</cite>
+        </div>
+        <div class="testimonial-slide" id="testimonial-2">
+          <blockquote>
+            "Amazing photos taken on our wedding day! Ellie made us feel so comfortable in front of the camera and the results were absolutely stunning. Every shot was perfectly captured with such talent and care."
+          </blockquote>
+          <cite>Charlotte &amp; Mark Peskett</cite>
+        </div>
+        <div class="testimonial-slide" id="testimonial-3">
+          <blockquote>
+            "Ellie was absolutely wonderful to work with. She captured our engagement session beautifully and had such a natural ability to make us feel relaxed and at ease. The photos were breathtaking!"
+          </blockquote>
+          <cite>Mario &amp; Diana</cite>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="t-btn" id="t-prev" aria-label="Previous testimonial">‹</button>
+        <div class="t-dots">
+          <button class="t-dot active" id="dot-0" aria-label="Testimonial 1"></button>
+          <button class="t-dot" id="dot-1" aria-label="Testimonial 2"></button>
+          <button class="t-dot" id="dot-2" aria-label="Testimonial 3"></button>
+        </div>
+        <button class="t-btn" id="t-next" aria-label="Next testimonial">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Let's Create<br />Something Beautiful</h2>
+        <p class="body-text">Whether you're planning your dream wedding, an intimate elopement, or a family portrait session, I'd love to hear from you. Drop me a message and let's start planning.</p>
+        <div class="contact-details">
+          <a href="mailto:hello@elliemayphotos.com" class="contact-item" id="contact-email">
+            <span class="contact-icon">✉</span>
+            hello@elliemayphotos.com
+          </a>
+          <a href="tel:07579032450" class="contact-item" id="contact-phone">
+            <span class="contact-icon">✆</span>
+            07579 032 450
+          </a>
+          <div class="contact-item">
+            <span class="contact-icon">◎</span>
+            Based in Worcestershire · Travel Worldwide
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" id="social-instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="social-link" id="social-facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Ellie" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" placeholder="May" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="hello@yourname.com" required />
+        </div>
+        <div class="form-group">
+          <label for="shoot-type">What are you looking for?</label>
+          <select id="shoot-type" name="shoot-type">
+            <option value="">Select a package…</option>
+            <option value="wedding">Wedding Photography</option>
+            <option value="elopement">Elopement</option>
+            <option value="engagement">Engagement Shoot</option>
+            <option value="newborn">Newborn / Family</option>
+            <option value="portrait">Portraits</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Wedding / Session Date</label>
+          <input type="date" id="date" name="date" />
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me about your day</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your vision, venue, and anything else you'd like me to know…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full-width" id="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="Images/Ellie-May-Photos-Logo-Circle.png" alt="Ellie May Photography" class="footer-logo-img" />
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#packages">Packages</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2025 Ellie May Photography · <a href="mailto:hello@elliemayphotos.com">hello@elliemayphotos.com</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
