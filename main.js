@@ -113,7 +113,48 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ─── CONTACT FORM ─── handled by @formspree/ajax SDK ───
+  // ─── CONTACT FORM ─── native fetch → Formspree ──────────
+  const contactForm   = document.getElementById('contact-form');
+  const successPanel  = document.querySelector('[data-fs-success]');
+  const errorPanel    = document.querySelector('[data-fs-error]');
+  const submitBtn     = document.getElementById('submit-btn');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Reset any previous error
+      errorPanel.textContent = '';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const data = new FormData(contactForm);
+        const response = await fetch('https://formspree.io/f/mnjydbkz', {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          // Show success, hide form
+          contactForm.style.display = 'none';
+          successPanel.style.display = 'flex';
+        } else {
+          const json = await response.json();
+          const msg  = (json.errors || []).map(err => err.message).join(', ')
+                       || 'Something went wrong. Please try again or email hello@elliemayphotos.com';
+          errorPanel.textContent = msg;
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      } catch {
+        errorPanel.textContent = 'Network error — please check your connection and try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  }
 
   // ─── GALLERY: parallax on mouse ─────────────────────
   const galleryItems = document.querySelectorAll('.gallery-item');
