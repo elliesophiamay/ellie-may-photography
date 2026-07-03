@@ -544,7 +544,7 @@ ul { list-style: none; }
   color: var(--text-soft);
 }
 
-/* ─── PACKAGES ──────────────────────────────────────────── */
+/* ─── PACKAGES / PRICING ────────────────────────────────── */
 .packages {
   background: var(--forest);
   padding: clamp(5rem, 10vw, 9rem) 2rem;
@@ -613,9 +613,65 @@ ul { list-style: none; }
   white-space: nowrap;
 }
 
-.pkg-icon {
-  font-size: 2rem;
+/* Package icons — SVG line art */
+.pkg-icon-wrap {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.35s var(--ease-smooth);
+}
+.package-card:hover .pkg-icon-wrap {
+  border-color: var(--gold);
+  transform: scale(1.08);
+}
+.pkg-icon-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--gold-light);
+  transition: color 0.35s;
+}
+.package-card.featured .pkg-icon-wrap {
+  border-color: var(--forest-light);
+  background: rgba(27, 60, 42, 0.06);
+}
+.package-card.featured .pkg-icon-svg {
+  color: var(--forest);
+}
+
+/* Pricing display */
+.pkg-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
   margin-bottom: 1.2rem;
+}
+.pkg-from {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.pkg-amount {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.package-card.featured .pkg-from {
+  color: var(--text-soft);
+}
+.package-card.featured .pkg-amount {
+  color: var(--forest);
 }
 
 .pkg-title {
@@ -623,7 +679,7 @@ ul { list-style: none; }
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--white);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .pkg-desc {
@@ -659,6 +715,18 @@ ul { list-style: none; }
 .package-card.featured .pkg-list li::before { color: var(--forest); }
 
 .pkg-btn { width: 100%; justify-content: center; }
+
+/* Outline buttons on dark cards need light text/borders */
+.package-card:not(.featured) .btn-outline {
+  border-color: rgba(255,255,255,0.45);
+  color: var(--white);
+}
+.package-card:not(.featured) .btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
+  color: var(--white);
+}
+
 .package-card.featured .btn-outline {
   border-color: var(--forest);
   color: var(--forest);
@@ -666,6 +734,69 @@ ul { list-style: none; }
 .package-card.featured .btn-outline:hover {
   background: var(--forest);
   color: var(--white);
+}
+
+/* ─── INCLUDED IN EVERY PACKAGE ────────────────────────── */
+.pricing-includes {
+  max-width: 1160px;
+  margin: 4.5rem auto 0;
+  padding: 3rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+}
+
+.includes-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.02em;
+}
+
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem 2.5rem;
+}
+
+.includes-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.includes-icon {
+  color: var(--gold);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.includes-text {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+
+/* ─── PRICING CTA ──────────────────────────────────────── */
+.pricing-cta {
+  max-width: 700px;
+  margin: 3.5rem auto 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pricing-cta-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
 }
 
 /* ─── GALLERY ───────────────────────────────────────────── */
@@ -1149,6 +1280,8 @@ a.contact-item:hover { color: var(--forest); }
 
   .packages-grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }
   .package-card.featured { transform: none; }
+  .includes-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem 2rem; }
+  .pricing-includes { padding: 2rem 1.5rem; }
 
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
@@ -1172,4 +1305,5 @@ a.contact-item:hover { color: var(--forest); }
   }
   .gallery-item.wide { grid-column: span 1; }
   .about-img-secondary { display: none; }
+  .includes-grid { grid-template-columns: 1fr; }
 }
