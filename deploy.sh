@@ -66,12 +66,28 @@ echo ""
 # ── Step 4: Deploy to Vercel production ───────────────────────
 info "Deploying to Vercel (production)…"
 DEPLOY_OUTPUT=$(vercel --prod --yes 2>&1)
-DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -E "^https://" | tail -1)
+DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -oE "https://ellie-may-photography-[a-z0-9]+-elliesophiamay-coder\.vercel\.app" | head -1)
+
+if [ -z "$DEPLOY_URL" ]; then
+  warn "Could not extract deployment URL — skipping alias update."
+else
+  success "Deployed to: $DEPLOY_URL"
+
+  # ── Step 5: Re-alias custom domains to latest deployment ──────
+  info "Updating custom domain aliases…"
+  vercel alias set "$DEPLOY_URL" www.elliemayphotos.com >/dev/null 2>&1 \
+    && success "www.elliemayphotos.com → latest deployment" \
+    || warn "Failed to alias www.elliemayphotos.com"
+
+  vercel alias set "$DEPLOY_URL" elliemayphotos.com >/dev/null 2>&1 \
+    && success "elliemayphotos.com → latest deployment" \
+    || warn "Failed to alias elliemayphotos.com"
+fi
 
 echo ""
-success "Deployed! 🎉"
+success "All done! 🎉"
 echo ""
-echo "  🌐  Live URL : ${DEPLOY_URL:-"https://vercel.com/elliesophiamay"}"
+echo "  🌐  Live URL : https://www.elliemayphotos.com"
 echo "  📁  GitHub   : https://github.com/elliesophiamay/ellie-may-photography"
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
