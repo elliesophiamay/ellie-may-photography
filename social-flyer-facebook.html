@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ellie May Photography — Facebook Flyer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET ─────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #e8e0d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      padding: 40px;
+    }
+
+    /* ─── FLYER CANVAS (1200 × 630 — Facebook) ─────────── */
+    .flyer {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      background: #faf6f1;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* Subtle warm radial glow */
+    .flyer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 30%, rgba(193,168,140,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 70%, rgba(193,168,140,0.10) 0%, transparent 50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ─── DECORATIVE BORDER ─────────────────────────────── */
+    .flyer-border {
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(139,109,79,0.22);
+      z-index: 20;
+      pointer-events: none;
+    }
+    .flyer-border::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(139,109,79,0.10);
+    }
+
+    /* Corner accents */
+    .corner { position: absolute; width: 30px; height: 30px; z-index: 21; pointer-events: none; }
+    .corner::before, .corner::after { content: ''; position: absolute; background: #8b6d4f; }
+    .corner-tl { top: 12px; left: 12px; }
+    .corner-tl::before { top: 0; left: 0; width: 16px; height: 1px; }
+    .corner-tl::after  { top: 0; left: 0; width: 1px; height: 16px; }
+    .corner-tr { top: 12px; right: 12px; }
+    .corner-tr::before { top: 0; right: 0; width: 16px; height: 1px; }
+    .corner-tr::after  { top: 0; right: 0; width: 1px; height: 16px; }
+    .corner-bl { bottom: 12px; left: 12px; }
+    .corner-bl::before { bottom: 0; left: 0; width: 16px; height: 1px; }
+    .corner-bl::after  { bottom: 0; left: 0; width: 1px; height: 16px; }
+    .corner-br { bottom: 12px; right: 12px; }
+    .corner-br::before { bottom: 0; right: 0; width: 16px; height: 1px; }
+    .corner-br::after  { bottom: 0; right: 0; width: 1px; height: 16px; }
+
+    /* ─── LEFT PANEL (Text) ────────────────────────────── */
+    .flyer-left {
+      position: relative;
+      z-index: 5;
+      width: 440px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 40px;
+      text-align: center;
+    }
+
+    .logo-img {
+      width: 66px;
+      height: auto;
+      margin-bottom: 4px;
+      opacity: 0.85;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      color: #5a4635;
+      margin-bottom: 18px;
+    }
+
+    .flyer-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 1.08;
+      color: #2c2218;
+    }
+    .flyer-headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: #8b6d4f;
+    }
+
+    .flyer-tagline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8b6d4f;
+      margin-top: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* Divider */
+    .divider-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c1a88c, transparent);
+      max-width: 140px;
+    }
+    .divider-diamond {
+      width: 5px;
+      height: 5px;
+      background: #c1a88c;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 20px;
+      margin-bottom: 18px;
+    }
+    .service-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #5a4635;
+    }
+
+    /* Contact */
+    .cta-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .cta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-icon {
+      font-size: 11px;
+      color: #8b6d4f;
+    }
+    .cta-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 10px;
+      color: #5a4635;
+      letter-spacing: 0.3px;
+    }
+
+    /* Website */
+    .website-url {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      color: #8b6d4f;
+      margin-bottom: 12px;
+    }
+
+    /* Booking badge */
+    .booking-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 22px;
+      background: #2c2218;
+      color: #faf6f1;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 8.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .booking-badge .sparkle { color: #c1a88c; }
+
+    /* ─── RIGHT PANEL (Photos) ─────────────────────────── */
+    .flyer-right {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 6px;
+      padding: 28px 28px 28px 0;
+      min-width: 0;
+    }
+
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+      min-height: 0;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 3px;
+      pointer-events: none;
+    }
+
+    /* Span the hero image across two rows */
+    .photo-tall {
+      grid-row: span 2;
+    }
+
+    /* ─── PRINT ─────────────────────────────────────────── */
+    @media print {
+      body { padding: 0; background: white; }
+      .flyer { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="flyer">
+  <!-- Decorative border -->
+  <div class="flyer-border"></div>
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- ─── LEFT: BRANDING + INFO ─── -->
+  <div class="flyer-left">
+    <img src="Images/Ellie-May-Photos-Logo-Circle.png" alt="Ellie May Photography" class="logo-img" />
+    <div class="brand-name">Ellie May Photography</div>
+    <h1 class="flyer-headline">Your Story,<br /><em>Forever Told</em></h1>
+    <p class="flyer-tagline">Natural & Emotive Photography</p>
+
+    <div class="divider-row">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="services-grid">
+      <span class="service-item">Weddings</span>
+      <span class="service-item">Engagements</span>
+      <span class="service-item">Families</span>
+      <span class="service-item">Portraits</span>
+    </div>
+
+    <div class="cta-stack">
+      <div class="cta-item">
+        <span class="cta-icon">✉</span>
+        <span class="cta-text">hello@elliemayphotos.com</span>
+      </div>
+      <div class="cta-item">
+        <span class="cta-icon">◎</span>
+        <span class="cta-text">Worcestershire & UK-wide</span>
+      </div>
+    </div>
+
+    <div class="website-url">www.elliemayphotos.com</div>
+
+    <div class="booking-badge">
+      <span class="sparkle">✦</span>
+      Now Booking 2026 & Beyond
+      <span class="sparkle">✦</span>
+    </div>
+  </div>
+
+  <!-- ─── RIGHT: PHOTO GRID ─── -->
+  <div class="flyer-right">
+    <div class="photo-frame photo-tall">
+      <img src="Images/4.png" alt="Bride and groom sharing a kiss in front of a castle in autumn" />
+    </div>
+    <div class="photo-frame">
+      <img src="Images/Screenshot 2026-06-08 at 13.05.10.png" alt="Couple sharing a tender moment in a garden" />
+    </div>
+    <div class="photo-frame">
+      <img src="Images/Anna and David-1241.jpg" alt="Close-up of wedding rings" />
+    </div>
+    <div class="photo-frame">
+      <img src="Images/Screenshot 2026-06-08 at 13.05.59.png" alt="Couple in golden meadow at sunset" />
+    </div>
+    <div class="photo-frame">
+      <img src="Images/3.png" alt="Beautifully decorated wedding cake with fresh flowers" />
+    </div>
+    <div class="photo-frame">
+      <img src="Images/1.png" alt="Bride and groom sitting on rustic stone steps" />
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
